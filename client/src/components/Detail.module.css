@@ -1,0 +1,107 @@
+.background{
+   background-image: url("C:\Users\agust\OneDrive\Escritorio\pi\client\src\components\img\Desktop - 1 (1).png"); 
+   height: 100% ;
+   width: 100% ;
+   background-size:cover;
+   background-position:right;
+   background-repeat: no-repeat;
+   position:absolute;
+   top: 10;
+   left: 0;
+   flex-direction: column;
+   justify-content: space-between;
+}
+
+.contenedor{
+    display: flex;
+    padding: 1rem;
+    margin: 1rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    /* background-color: #bebebe; */
+}
+.imagen{
+    width: auto;
+    height: 15rem;
+    padding: 1rem;
+}
+.detalles{
+    width: 15rem;
+    height: 18rem;
+    border-radius: 1rem;
+    margin: 1rem;
+    /* border: solid 1px rgb(64 9 86); */
+    background-color: rgba(10, 10, 10, 0.741);
+    padding: 0.5rem;
+    display: inline-grid;
+    align-content: space-around;
+    box-shadow: 0px 7px 8px 3px rgb(64 9 86 / 27%);
+    color: #bebebe;
+}
+.boxActivity{
+    width: 15rem;
+    height: 18rem;
+    border-radius: 1rem;
+    margin: 1rem;
+    /* border: solid 1px rgb(64 9 86); */
+    background-color: rgba(10, 10, 10, 0.741);
+    padding: 0.5rem;
+    display: inline-grid;
+    align-content: space-around;
+    box-shadow: 0px 7px 8px 3px rgb(64 9 86 / 27%);
+    /* background-color: #bebebe; */
+    color: #bebebe;
+}
+.activity{
+    color: rgb(73, 73, 73);
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    border: 1rem;
+    height: 15rem;
+    /* background-color: rgba(76, 0, 130, 0.099); */
+    /* width: 10rem; */
+    /* background-color: #bebebe; */
+}
+
+.titulo{
+color:#bebebe;
+}
+.button {
+    border: none;
+    padding: 0.7em 2em;
+    font-size: 12px;
+    font-family: inherit;
+    background-blend-mode: multiply;
+    color: rgb(235, 234, 234);
+    border-radius: 9px;
+    background: linear-gradient(225deg, #181818, #2e2e2e);
+    box-shadow: -5px 5px 10px #191919,
+                5px -5px 10px #292929;
+   }
+   
+  .button:hover {
+    background: #212121;
+    transition: background 1s ease;
+    box-shadow: -5px 5px 10px #191919,
+                5px -5px 10px #292929;
+   }
+   
+   .button:active {
+    transition: box-shadow .1s ease;
+    border-radius: 9px;
+    background: #212121;
+    box-shadow: inset -5px 5px 10px #191919,
+                 inset 5px -5px 10px #292929;
+   }
+   
+   .span {
+    opacity: 0.5;
+    transition: opacity 0.2s ease;
+   }
+   
+   .button:hover span {
+    opacity: 0.7;
+   }

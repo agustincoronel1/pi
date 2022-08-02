@@ -1,0 +1,65 @@
+.card{
+    width: 190px;
+    height: 254px;
+    border-radius: 30px;
+    background: #e0e0e0;
+    box-shadow: 15px 15px 30px #bebebe,
+                -15px -15px 30px #ffffff;
+                
+}
+
+.borde{
+    width: 15rem;
+    height: 18rem;
+    border-radius: 1rem;
+    margin: 1rem;
+    /* border: solid 1px rgb(64 9 86); */
+    background-color: rgba(10, 10, 10, 0.741);
+    padding: 0.5rem;
+    display: inline-grid;
+    align-content: space-around;
+    box-shadow: 0px 7px 8px 3px rgb(64 9 86 / 27%);
+}
+
+.imagen{
+    background: center;
+    width: 8rem;
+    height: 5rem;
+}
+
+.contenido{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    flex-direction: column;
+    align-content: space-around;
+    padding: none;
+    color: #bebebe;
+}
+
+.pais{
+    height: 5rem;
+    width: 12rem;
+    text-align: center;
+}
+
+.detalle{
+    height: 10px;
+    width: auto;
+    
+}
+
+.button{
+    font-family: inherit;
+    margin:1rem ;
+    pointer-events: all;
+    border-radius: 1rem;
+    background: none;
+    border: none;
+    font-size: 11px;
+    padding: 5px;
+    cursor: pointer;
+    box-shadow: 1px  1px 1px 1px rgb(65, 65, 65);
+    color:white;
+    
+}
