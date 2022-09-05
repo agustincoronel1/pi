@@ -9,6 +9,7 @@ const router = Router();
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 //trae info de la api //una con axios para traer la data de la api y formateo con el map lo que quiero
+
 const apiInfo = async () =>{
     const AllApi = await axios.get('https://restcountries.com/v3/all')
   
@@ -24,29 +25,17 @@ const apiInfo = async () =>{
                 population:item.population
             }
         })
-        await Country.bulkCreate(allCountries) 
+        await Country.bulkCreate(allCountries)  //El método bulkCreate() le permite insertar múltiples 
+                                                //registros en la tabla de su base de datos con una sola llamada de función.
 }
-router.get("/activities", async (req, res) => {
-    try {
-      const findActivity = await Actividad.findAll({
-        include: {
-          model: Country,
-        },
-      });
-      return res.json(findActivity);
-    } catch (error) {
-      res.status(400).send(error);
-    }
-  });
+
 router.get('/countries' , async (req,res,next)=>{
     try {
-        //get de query name
-        const {name} = req.query
+        const {name} = req.query //get de query name
         if(name){
             const response = await Country.findAll()
             const data = await response.filter(item=>item.name.toLowerCase().includes(name.toLowerCase()))
-            data ? res.json(data) : res.status(404).send("not found")
-
+            data.length ? res.json(data) : res.json(alert('No hay ningun pais con ese nombre'))
         }else{
         //PARA NO TUMBAR EL SERVIDOR VERIFICAMOS pq si hacia /countries desp otra por id y volvia a /Countries me aparecia error  
             const verification= await Country.count() //pregunto si hay algo
@@ -98,21 +87,34 @@ router.get('/countries/:id', async (req,res) =>{
     }
      
  })
+//direccionamiento 
+router.get("/activities", async (req, res) => { //apartado actividades
+  try {
+    const findActivity = await Actividad.findAll({
+      include: {
+        model: Country,
+      },
+    });
+    return res.json(findActivity);
+  } catch (error) {
+    res.status(400).send(error);
+  }
+}); 
 
  router.post('/activities', async (req,res)=>{
     const {
         name,
         dificultad,
         duracion,
-       temporada,
+       season,
        countries
         } = req.body
-        console.log(temporada)
+        // console.log(temporada)
     const newActivity = await Actividad.create({
         name,
         dificultad,
         duracion,
-        temporada, 
+        season, 
         
     })
      
@@ -129,4 +131,17 @@ router.get('/countries/:id', async (req,res) =>{
     res.send('actividad creada')
 
  })
+
+ router.delete("/countries/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    await Country.destroy({
+      where: { id: id },
+    });
+    return res.send("Eliminado!");
+  } catch (error) {
+    return error;
+  }
+});
+
 module.exports = router;

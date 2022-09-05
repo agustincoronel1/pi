@@ -11,36 +11,18 @@ return async function(dispatch){
 }
 }
 
- export function filterCountriesByContinent(payload){
-    return{
-        type: 'FILTER_BY_CONTINENT',
-        payload
-    }
- }
-
- export function filterActivity(payload){
-    return{
-        type: 'FILTER_BY_ACTIVITY',
-        payload
-    }
- }
-
- export function getActivity(){
-    return async function(dispatch){
-        var json =await axios.get('http://localhost:3001/activities')
-       // console.log(json.data)
-        return dispatch({
+export function getActivity(){
+    return function(dispatch){
+        axios.get('http://localhost:3001/activities')
+        .then(json=> 
+            dispatch({
             type: 'GET_ACTIVITY',
             payload: json.data
-        })
+            }))
     }
- }
- export function filterByName(payload){
-    return{
-        type: 'FILTER_BY_NAME',
-        payload
-    }
- }
+}
+
+
 
  export function getNameCountries(name){
     return async function(dispatch){
@@ -59,22 +41,25 @@ return async function(dispatch){
         }
     }
  }
-export function postActivity(payload){
+
+
+ export function getContinentCountries(continent){
     return async function(dispatch){
-        const response = await axios.post('http://localhost:3001/activities',payload) //en esta ruta hacer el post del payload q me llega del front
-        return response;
-    }
-}
+        try{
+            var json = await axios.get('http://localhost:3001/countries?continent='+ continent)
+            return dispatch({
+                type: 'GET_CONTINENT_COUNTRIES',
+                payload: json.data
+            })
+        }catch(error){
+            console.log(error)
+            alert('Pais inexistente')
 
+            
 
-
- export function filterByPopulation(payload){
-    return{
-        type: 'FILTER_BY_POPULATION',
-        payload
+        }
     }
  }
-
  export function getDetail(id){
     return async function(dispatch){
         try{
@@ -87,3 +72,71 @@ export function postActivity(payload){
             console.log(e)        }
     }
  }
+ 
+ export function postActivity(payload){
+    return async function(dispatch){
+        const response = await axios.post('http://localhost:3001/activities',payload) //en esta ruta hacer el post del payload q me llega del front
+        return response;
+    }
+}
+
+export function cleanDetail(){
+    return{
+        type: "CLEAN_DETAILS"
+    }
+}
+
+export function deleteCountrie(id){
+    return async function (){
+        console.log(id)
+        try {
+            var json= await axios.delete('http://localhost:3001/countries/' + id)
+            console.log(json)
+            return json
+        } catch (error) {
+            
+        }
+    }
+}
+
+// export function deleteActivity(name){
+//     return async function (){
+//         console.log(id)
+//         try {
+//             var json= await axios.delete('http://localhost:3001/activities/' + nombre)
+//             console.log(json)
+//             return json
+//         } catch (error) {
+            
+//         }
+//     }
+// }
+
+ export function filterCountriesByContinent(payload){
+    return{
+        type: 'FILTER_BY_CONTINENT',
+        payload
+    }
+ }
+
+ export function filterActivity(payload){
+    return{
+        type: 'FILTER_BY_ACTIVITY',
+        payload
+    }
+ }
+
+ export function filterByName(payload){
+    return{
+        type: 'FILTER_BY_NAME',
+        payload
+    }
+ }
+
+ export function filterByPopulation(payload){
+    return{
+        type: 'FILTER_BY_POPULATION',
+        payload
+    }
+ }
+

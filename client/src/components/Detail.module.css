@@ -1,5 +1,5 @@
 .background{
-   background-image: url("C:\Users\agust\OneDrive\Escritorio\pi\client\src\components\img\Desktop - 1 (1).png"); 
+   background-image: url("C:\Users\agust\OneDrive\Escritorio\pi\client\src\components\img\abstract-smooth-empty-grey-studio-well-use-as-background-business-report-digital-website-template-backdrop.jpg");
    height: 100% ;
    width: 100% ;
    background-size:cover;
@@ -11,6 +11,36 @@
    flex-direction: column;
    justify-content: space-between;
 }
+.imagenLoading{
+    width: 8rem;
+    height: 8rem;
+
+}
+
+.loading{
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    animation: animar 5s cubic-bezier(0, 0, 1, 1.03) infinite;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes animar {
+    0% {
+      transform: rotate(0deg);
+
+    }
+
+    100% {
+      transform: rotate(360deg);
+
+    }
+}  
+
+
+
+
 
 .contenedor{
     display: flex;
@@ -27,31 +57,22 @@
     padding: 1rem;
 }
 .detalles{
-    width: 15rem;
-    height: 18rem;
-    border-radius: 1rem;
-    margin: 1rem;
-    /* border: solid 1px rgb(64 9 86); */
-    background-color: rgba(10, 10, 10, 0.741);
-    padding: 0.5rem;
-    display: inline-grid;
-    align-content: space-around;
-    box-shadow: 0px 7px 8px 3px rgb(64 9 86 / 27%);
-    color: #bebebe;
+    padding: 1rem;
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+    background: #e0e0e0;
+    box-shadow: 10px 10px 20px #bebebe,
+                -10px -10px 20px #ffffff;
 }
 .boxActivity{
-    width: 15rem;
-    height: 18rem;
-    border-radius: 1rem;
-    margin: 1rem;
-    /* border: solid 1px rgb(64 9 86); */
-    background-color: rgba(10, 10, 10, 0.741);
-    padding: 0.5rem;
-    display: inline-grid;
-    align-content: space-around;
-    box-shadow: 0px 7px 8px 3px rgb(64 9 86 / 27%);
-    /* background-color: #bebebe; */
-    color: #bebebe;
+    padding: 1rem;
+    width: 300px;
+    height: 240px;
+    border-radius: 20px;
+    background: #e0e0e0;
+    box-shadow: 10px 10px 20px #bebebe,
+                -10px -10px 20px #ffffff;
 }
 .activity{
     color: rgb(73, 73, 73);
@@ -67,19 +88,11 @@
 }
 
 .titulo{
-color:#bebebe;
+color:#6e6e6e;
 }
-.button {
-    border: none;
-    padding: 0.7em 2em;
-    font-size: 12px;
-    font-family: inherit;
-    background-blend-mode: multiply;
-    color: rgb(235, 234, 234);
-    border-radius: 9px;
-    background: linear-gradient(225deg, #181818, #2e2e2e);
-    box-shadow: -5px 5px 10px #191919,
-                5px -5px 10px #292929;
+.Button {
+  margin: 1rem;
+   
    }
    
   .button:hover {

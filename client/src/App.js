@@ -4,16 +4,18 @@ import LandingPage from './components/LandingPage';
 import Home from './components/Home';
 import ActivityCreate from './components/ActivityCreate';
 import Detail from './components/Detail';
-// import Error from './components/error';
+import Error from './components/Error';
+
 function App() {
   return (
     <BrowserRouter>
     <div className="App">
+       <Switch>
       <Route exact path="/" component={LandingPage} /> 
       <Route  path="/home" component={Home} /> 
       <Route path="/activities" component={ActivityCreate} />
       <Route path="/countries/:id" component={Detail}/>
-      {/* <Route component={Error}/> */}
+       </Switch>
     </div>
    </BrowserRouter>
   )

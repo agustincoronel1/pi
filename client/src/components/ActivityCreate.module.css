@@ -1,5 +1,5 @@
 .background{
-    background-image: url("C:\Users\agust\OneDrive\Escritorio\pi\client\src\components\img\Desktop - 1 (1).png"); 
+    background-image: url("C:\Users\agust\OneDrive\Escritorio\pi\client\src\components\img\abstract-smooth-empty-grey-studio-well-use-as-background-business-report-digital-website-template-backdrop.jpg");
    height: 100% ;
   width: 100% ;
    /* height: auto; */
@@ -15,14 +15,10 @@
    justify-content: space-between;
 }
 
-form{
-    /* background-color: aliceblue;
-    width: 100%;
-    height: 100% ; */
+.formulario{
+   width: 300px;
+   margin: 0 auto;
    
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
 }
 select{
     /* width: 100%; */

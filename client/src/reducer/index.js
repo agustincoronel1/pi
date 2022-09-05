@@ -4,9 +4,8 @@
     countries : [],
     allCountries:[],
     actividad: [],
-    allCountries2:[],
+    // allCountries2:[],
     detail:[]
-    // allCountries3:[]
  }
 
  //en mi estado countries que en principio esta vacio
@@ -19,13 +18,15 @@ switch (action.type) {
         countries:action.payload,
         allCountries:action.payload
     }
+
     case 'FILTER_BY_CONTINENT' :
         var allCountries=state.allCountries
         const continentFiltered= action.payload==='todos' ? allCountries : allCountries.filter(el=>el.continent===action.payload)
         return{
-             ...state,
+             ...state, //copia del estado
              countries: continentFiltered
         }
+
          case 'FILTER_BY_ACTIVITY':
          const mapeoCountries= state.allCountries.filter(c => {
             let mapeo = c.Actividads?.map(d => d.name)
@@ -33,18 +34,20 @@ switch (action.type) {
                 return c 
             }
         })
-        
         return{
             ...state,
             countries: mapeoCountries
         }
+        
+
     case 'GET_ACTIVITY':
         return{
             ...state,
           actividad:action.payload
         }
+
       case 'FILTER_BY_NAME':
-        let sortPayload= action.payload==='asc'? 
+        let sortPayload= action.payload==='ascendente'? 
         state.countries.sort(function (a,b){ //el sort ordena mueve para la izq o der
           if (a.name>b.name) { //el nombre a es mayor q b? si lo es devuelvo 1 
             return 1;
@@ -53,7 +56,8 @@ switch (action.type) {
             return -1;
           }
           return 0;
-        }) :
+        }) 
+        :
         state.countries.sort(function (a,b){
           if (a.name>b.name) {
             return -1
@@ -65,9 +69,15 @@ switch (action.type) {
         return {
         ...state,
         countries:sortPayload
-        
         }
+
         case 'GET_NAME_COUNTRIES':
+          return{
+            ...state,
+            countries:action.payload //countries pq es el arreglo que vamos a mostrar
+          }
+
+          case 'GET_CONTINENT_COUNTRIES':
           return{
             ...state,
             countries:action.payload //countries pq es el arreglo que vamos a mostrar
@@ -97,15 +107,23 @@ switch (action.type) {
         countries:sortPayload2
         
         }
+
         case "POST_ACTIVITY":
           return{
             ...state,
           }
+
           case "GET_DETAILS":
             return{
               ...state,
               detail:action.payload
             }
+        
+            case "CLEAN_DETAILS":
+              return{
+                ...state,
+                detail:[]
+              }
     default : return state
 }
     

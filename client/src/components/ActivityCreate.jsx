@@ -10,6 +10,14 @@ import { useDispatch,useSelector } from "react-redux";
 
 import style from './ActivityCreate.module.css'
 
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import Offcanvas from 'react-bootstrap/Offcanvas';
+
  export default function ActivityCreate(){
     const dispatch = useDispatch();
     const history=useHistory()
@@ -67,7 +75,6 @@ import style from './ActivityCreate.module.css'
 function handleSubmit(e){
     e.preventDefault();
     const {name, dificultad,duracion, season, countries} = input;
-    console.log(input)
     if(!name.trim() || !/^[a-zA-Z\ áéíóúÁÉÍÓÚñÑ\s]*$/.test(name) || name.length <= 3){
        return alert('El nombre no debe contener caracteres especiales y debe ser mayor a dos')
        
@@ -88,7 +95,8 @@ function handleSubmit(e){
         return  alert('Debes de seleccionar al menos un Pais')
        
     }
-    dispatch(postActivity(input))
+    dispatch(postActivity(input)) //pase la info del form a la bd
+    // console.log(input)
     alert('Actividad creada con exito!')
     setInput({
         name:"",
@@ -102,29 +110,76 @@ function handleSubmit(e){
 
     return(
         <div className={style.background}>
-            <Link to='/home'><button className={style.button}>Volver</button> </Link>
+             {[false].map((expand) => (
+    <Navbar key={expand} bg="dark" expand={expand} variant="dark" className="mb-3">
+          <Container fluid>
+            <Navbar.Brand href="/home">COUNTRIES by Agustin Coronel</Navbar.Brand>  
+            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
+            <Navbar.Offcanvas
+              id={`offcanvasNavbar-expand-${expand}`}
+              aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
+              placement="end"
+            >
+              <Offcanvas.Header closeButton>
+                <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
+                  Menú
+                </Offcanvas.Title>
+              </Offcanvas.Header>
+              <Offcanvas.Body>
+                <Nav className="justify-content-end flex-grow-1 pe-3">
+                  <Nav.Link href="/home">Home</Nav.Link>
+                  <Nav.Link href="/activities">Crear actividad</Nav.Link>
+                  <NavDropdown
+                    title="Sobre mi"
+                    id={`offcanvasNavbarDropdown-expand-${expand}`}
+                  >
+                    <NavDropdown.Item href="#action3">GitHub</NavDropdown.Item>
+                    <NavDropdown.Item href="#action4">
+                    LinkedIn
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                </Nav>
+                </Offcanvas.Body>
+            </Navbar.Offcanvas>
+          </Container>
+        </Navbar>
+))}
             {/* <h1>Creá una actividad!</h1> */}
-            <form onSubmit={(e)=>handleSubmit(e)}>
+            <Form onSubmit={(e)=>handleSubmit(e)}>
 
-                <div className={style.form}>
+                {/* <div className={style.form}>
                     <label>Nombre:</label>
                     <input type="text" value={input.name} placeholder="Nombre de la actividad..." name="name" onChange={(e)=>{handleChange(e)}} required/>
-                </div>
+                </div> */}
                 
+                <Form.Group  controlId="formBasicEmail">
+        <Form.Label>Nombre</Form.Label>
+        <Form.Control className={style.formulario}  type="text" value={input.name} placeholder="Nombre de la actividad..." name="name" onChange={(e)=>{handleChange(e)}} required />
+      </Form.Group>
 
-
-                <div className={style.form}>
+                {/* <div className={style.form}>
                     <label>Dificultad:</label>
                     
                     <input type="number" size={2} min={1} max={5}id="1" placeholder="Dificultad de la actividad"  value={input.dificultad} name='dificultad' onChange={(e)=>{handleChange(e)}}/>
                     
-                </div>
+                </div> */}
                 
+                <Form.Group  controlId="formBasicEmail">
+        <Form.Label>Dificultad</Form.Label>
+        <Form.Control className={style.formulario}  type="number" size={2} min={1} max={5} id="1" placeholder="Dificultad de la actividad"  value={input.dificultad} name='dificultad' onChange={(e)=>{handleChange(e)}} />
+      </Form.Group>
 
-                <div className={style.form}>
+
+
+                {/* <div className={style.form}>
                     <label>Duracion:</label>
                     <input type="time" value={input.duracion} name="duracion"  min="01:00" max="12:00"   onChange={(e)=>{handleChange(e)}} required />
-                </div>
+                </div> */}
+
+<Form.Group  controlId="formBasicEmail">
+        <Form.Label>Duracion</Form.Label>
+        <Form.Control className={style.formulario}   type="time" value={input.duracion} name="duracion"  min="01:00" max="12:00"   onChange={(e)=>{handleChange(e)}} required />
+      </Form.Group>
 
                 <div  >
                     <label>Temporada:</label>
@@ -156,8 +211,8 @@ function handleSubmit(e){
                     })}
                     </select>
                 </div>
+
                     <button className={style.button} type="submit"> CREAR </button>
-                
                     <div>
                     
                     {input.countries?.map(country => {
@@ -171,7 +226,10 @@ function handleSubmit(e){
                         )
                     })}
                     </div>
-            </form>
+            </Form>
+            <Link to='/home'>
+           <Button variant="secondary" className={style.Button}>Volver</Button>
+        </Link> 
         </div>
     )
 

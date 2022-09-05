@@ -1,0 +1,16 @@
+.background{
+    background-image: url("C:\Users\agust\OneDrive\Escritorio\pi\client\src\components\img\eror-404.jpg");
+    min-height:100%;
+    min-width: 100%;
+     height: auto;
+     background-size:cover;
+     background-position:right;
+     background-repeat: no-repeat;
+     position:absolute;
+     top: 10;
+     left: 0;
+     /* display: flex;  
+     align-items: flex-start;   */
+     flex-direction: column;
+     justify-content: space-between;
+}

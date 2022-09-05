@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getNameCountries } from "../actions";
 import style from "./SearchBar.module.css"
+import Button from 'react-bootstrap/Button';
+
 
 export default function SearchBar({page}){
     const dispatch = useDispatch()
@@ -19,11 +21,10 @@ function handleSubmit(e){
     dispatch(getNameCountries(name))
     page(1)
 }
-////////////FALTA VALIDAR ESTE INPUT
 return(
-    <div>
+    <div className={style.barra}>
     <input className={style.input} type="input" placeholder="Por ejemplo: Argentina" name="text" onChange={(e)=>handleInputChange(e)} />
-    <button type='submit' className={style.button} onClick={(e)=>handleSubmit(e)}>BUSCAR</button>
+    <Button variant="dark" type='submit' className={style.button} onClick={(e)=>handleSubmit(e)}>Buscar</Button>
     </div>
 )
 

@@ -16,7 +16,7 @@
     transition: 0.3s;
    }
    
-   .button{
+   /* .button{
        margin: 3px;
               border: none;
               padding: 0.7em 2em;
@@ -28,9 +28,9 @@
               background: linear-gradient(225deg, #181818, #2e2e2e);
               /* box-shadow: -5px 5px 10px #191919,
                           5px -5px 10px #292929; */
-             }
+             /* } */
              
-            .button:hover {
+            /* .button:hover {
               background: #212121;
               transition: background 1s ease;
               box-shadow: -5px 5px 10px #191919,
@@ -53,6 +53,8 @@
              .button:hover span {
               opacity: 0.7;
              }
-      
+       */ 
    
-   
+   .barra{
+       margin: 20px;
+   }
