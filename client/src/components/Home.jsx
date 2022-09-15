@@ -17,6 +17,7 @@ import SearchBar from "./SearchBar";
 import Detail from "./Detail";
 
 import style from "./Home.module.css"
+
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -24,7 +25,15 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import TextField from '@mui/material/TextField';
 
+// import AppBar from '@mui/material/AppBar';
+// import Box from '@mui/material/Box';
+// import Toolbar from '@mui/material/Toolbar';
+// import Typography from '@mui/material/Typography';
+// import Button from '@mui/material/Button';
+// import IconButton from '@mui/material/IconButton';
+// import MenuIcon from '@mui/icons-material/Menu';
 
 // import 'bootstrap/dist/css/bootstrap.min.css' ;
 
@@ -97,7 +106,7 @@ return(
         {[false].map((expand) => (
     <Navbar key={expand} bg="dark" expand={expand} variant="dark" className="mb-3">
           <Container fluid>
-            <Navbar.Brand href="/home">COUNTRIES by Agustin Coronel</Navbar.Brand>  
+            <Navbar.Brand href="/home">COUNTRIES APP</Navbar.Brand>  
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
@@ -126,13 +135,35 @@ return(
           </Container>
         </Navbar>
 ))}
+{/* <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            News
+          </Typography>
+          <Button color="inherit">Login</Button>
+        </Toolbar>
+      </AppBar>
+    </Box> */}
+    <SearchBar page={setCurrentPage}/>
       <div className={style.opciones}>
+     
       <select className={style.orden}  onChange={e=>handleFilterName(e)}>
         
         <option  disabled selected hidden>ORDEN</option>
                     <option value='ascendente' >Ascendente</option>
                     <option value='descendente' >Descendente</option>
         </select>
+
 
         <select className={style.orden} onChange={e=>handleFilterPopulation(e)}>
         <option  disabled selected hidden>POBLACION</option>
@@ -163,21 +194,10 @@ return(
         </select>
       </div>
 
-      <SearchBar page={setCurrentPage}/>
+      
+      {/* <TextField id="outlined-basic" label="Outlined" variant="outlined" /> */}
 
-      <div className={style.pag}>
-     
-        <Paginado
-            countriesPerPage={countriesPerPage}
-            allCountries = {allCountries.length}
-            paginado = {paginado}
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
-            />
-         
-     </div>  
-
-       
+        
         <div className={style.cardContent}>
         {
           currentCountries?.map(el=>{ 
@@ -188,6 +208,17 @@ return(
             )})}
        </div>
        
+       <div className={style.pag}>
+     
+     <Paginado
+         countriesPerPage={countriesPerPage}
+         allCountries = {allCountries.length}
+         paginado = {paginado}
+         currentPage={currentPage}
+         setCurrentPage={setCurrentPage}
+         />
+      
+  </div> 
   </main>
  </div>
     

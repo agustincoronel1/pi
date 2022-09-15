@@ -5,7 +5,6 @@ import { getNameCountries } from "../actions";
 import style from "./SearchBar.module.css"
 import Button from 'react-bootstrap/Button';
 
-
 export default function SearchBar({page}){
     const dispatch = useDispatch()
     const [name,setName]=useState("")

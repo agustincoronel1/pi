@@ -144,43 +144,31 @@ function handleSubmit(e){
           </Container>
         </Navbar>
 ))}
-            {/* <h1>Creá una actividad!</h1> */}
-            <Form onSubmit={(e)=>handleSubmit(e)}>
+<h1> Crea tu actividad
+    </h1>            
+    <Form  onSubmit={(e)=>handleSubmit(e)}>
 
-                {/* <div className={style.form}>
-                    <label>Nombre:</label>
-                    <input type="text" value={input.name} placeholder="Nombre de la actividad..." name="name" onChange={(e)=>{handleChange(e)}} required/>
-                </div> */}
-                
-                <Form.Group  controlId="formBasicEmail">
-        <Form.Label>Nombre</Form.Label>
+    <div>
+        <Form.Group  controlId="formBasicEmail">
+        <p>Nombre</p>
         <Form.Control className={style.formulario}  type="text" value={input.name} placeholder="Nombre de la actividad..." name="name" onChange={(e)=>{handleChange(e)}} required />
-      </Form.Group>
+        </Form.Group>
+     </div>
+  <p></p>
 
-                {/* <div className={style.form}>
-                    <label>Dificultad:</label>
-                    
-                    <input type="number" size={2} min={1} max={5}id="1" placeholder="Dificultad de la actividad"  value={input.dificultad} name='dificultad' onChange={(e)=>{handleChange(e)}}/>
-                    
-                </div> */}
-                
-                <Form.Group  controlId="formBasicEmail">
+        <Form.Group  controlId="formBasicEmail">
         <Form.Label>Dificultad</Form.Label>
         <Form.Control className={style.formulario}  type="number" size={2} min={1} max={5} id="1" placeholder="Dificultad de la actividad"  value={input.dificultad} name='dificultad' onChange={(e)=>{handleChange(e)}} />
-      </Form.Group>
+        </Form.Group>
 
-
-
-                {/* <div className={style.form}>
-                    <label>Duracion:</label>
-                    <input type="time" value={input.duracion} name="duracion"  min="01:00" max="12:00"   onChange={(e)=>{handleChange(e)}} required />
-                </div> */}
+<p></p>
 
 <Form.Group  controlId="formBasicEmail">
         <Form.Label>Duracion</Form.Label>
         <Form.Control className={style.formulario}   type="time" value={input.duracion} name="duracion"  min="01:00" max="12:00"   onChange={(e)=>{handleChange(e)}} required />
       </Form.Group>
-
+<p></p>
+<p></p>
                 <div  >
                     <label>Temporada:</label>
                     <div className={style.temp}> 
@@ -199,7 +187,7 @@ function handleSubmit(e){
                     
                      </div>
                 </div>
-
+<p></p>
                 <div>
                     <label>Pais</label>
                     <select  name="countries" onChange={(e)=>{handleSelect(e)}}required>

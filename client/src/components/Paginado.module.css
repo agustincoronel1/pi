@@ -1,14 +1,14 @@
 
 .button{
-    /* margin: 3px; */
+    /* margin: 3px;
            border: none;
-           padding: 6px;
+           /* padding: 6px; */
            font-size: 13px;
            font-family: inherit;
            background-blend-mode: multiply;
            color: rgb(235, 234, 234);
            border-radius: 9px;
-           background: linear-gradient(225deg, #181818, #2e2e2e);
+           background: linear-gradient(225deg, #181818, #2e2e2e); 
            /* box-shadow: -5px 5px 10px #191919,
                        5px -5px 10px #292929; */
           }
@@ -46,8 +46,7 @@ border: none;
            color: rgb(235, 234, 234);
            border-radius: 9px;
            background: linear-gradient(225deg, #181818, #2e2e2e);
-           /* box-shadow: -5px 5px 10px #191919,
-                       5px -5px 10px #292929; */
+           
           }
           
          .button:hover {

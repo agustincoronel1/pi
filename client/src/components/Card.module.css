@@ -19,8 +19,8 @@
     padding: 0.5rem;
     display: inline-grid;
     align-content: space-around;
-    box-shadow: 15px 15px 30px #bebebe,
-             -15px -15px 30px #ffffff;
+    /* box-shadow: 15px 15px 50px #bebebe,
+             -15px -15px 50px #ffffff; */
 }
 
 .imagen{

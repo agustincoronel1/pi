@@ -8,7 +8,7 @@
   
  
 .background{
-  background-image: url("C:\Users\agust\OneDrive\Escritorio\pi\client\src\components\img\giphy (2).gif"); 
+  background-image: url("https://res.cloudinary.com/drjppu0py/image/upload/v1663120507/nasa-Q1p7bh3SHj8-unsplash_lkdni3.jpg"); 
  min-height: 100%;
  width: 100%;
  height: auto;
@@ -34,7 +34,7 @@ align-items: center;
 padding: 10.9589px 19.7967px;
 gap: 5.66px;
 position: absolute;
-width: 350px;
+width: 450px;
 height: 20.59px;
 left: 550px;
 top: 200.33px;
@@ -43,6 +43,9 @@ text-shadow: 2px 4px black;
  } 
 
     .button {
+      align-items: center;
+      display: flex;
+      justify-content: center;
       margin: 50px;
       border: none;
       padding: 0.7em 2em;
@@ -50,7 +53,7 @@ text-shadow: 2px 4px black;
       position: absolute;
       width: 180px;
       height: 39.59px;
-      left: 600px;
+      left:650px;
       top: 292.33px;
   
       /* align-items: center;

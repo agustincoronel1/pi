@@ -8,10 +8,10 @@ body {
     /* height: 5rem; */
     padding: 24px;
     text-align: end;
-    font-family: Raleway;
+    font-family: Roboto;
     /* box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); */
     background-color: #bebebe;
-    
+    display: block;
   }
  .nav {
     background: #bebebe;
@@ -21,6 +21,7 @@ body {
    
     
   }
+  
 
   .link:hover {
     border-top: 4px solid #ffffff;
@@ -97,9 +98,13 @@ body {
     opacity: 0.7;
    }
 
-
+   .logo {
+    display: flex;
+    width: 200px;
+    margin: 0 auto;
+  }
 .background{
-    background-image: url("C:\Users\agust\OneDrive\Escritorio\pi\client\src\components\img\abstract-smooth-empty-grey-studio-well-use-as-background-business-report-digital-website-template-backdrop.jpg"); 
+    /* background-image: url("C:\Users\agust\OneDrive\Escritorio\pi\client\src\components\img\abstract-smooth-empty-grey-studio-well-use-as-background-business-report-digital-website-template-backdrop.jpg");  */
    min-height:100%;
    min-width: 100%;
     height: auto;
@@ -160,7 +165,7 @@ body {
        .pag{
         display: flex;
         justify-content: center;
-       }
+        margin: 10px;       }
        .buttonPrevNext{
        background-color: #181818;
        color: white;
