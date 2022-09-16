@@ -25,19 +25,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import TextField from '@mui/material/TextField';
 
-// import AppBar from '@mui/material/AppBar';
-// import Box from '@mui/material/Box';
-// import Toolbar from '@mui/material/Toolbar';
-// import Typography from '@mui/material/Typography';
-// import Button from '@mui/material/Button';
-// import IconButton from '@mui/material/IconButton';
-// import MenuIcon from '@mui/icons-material/Menu';
-
-// import 'bootstrap/dist/css/bootstrap.min.css' ;
-
-// import logo from "./img/logo_small.png"
 
 export default function Home(){
     const dispatch = useDispatch() //para ir despachando las acciones
